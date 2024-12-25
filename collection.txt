@@ -1,0 +1,59 @@
+1. What is the Collection framework in Java?
+The Collection Framework in Java is a unified architecture for representing and manipulating collections (groups of objects). It includes a set of interfaces, implementations, and algorithms that make it easier to work with data. The framework provides standard ways to store and manipulate collections like lists, sets, maps, and queues.
+
+Key components of the Collection Framework:
+
+Interfaces: These define different types of collections (e.g., List, Set, Map, Queue).
+Implementations: These are the classes that implement the collection interfaces (e.g., ArrayList, HashSet, HashMap).
+Algorithms: These are static methods that perform operations like sorting, searching, and reversing.
+Some core interfaces in the Collection Framework include:
+
+Collection
+List
+Set
+Queue
+Map (though it’s not part of Collection, it’s part of the framework)
+2. What is the difference between ArrayList and LinkedList?
+Feature	ArrayList	LinkedList
+Underlying data structure	Array (dynamic array)	Doubly Linked List
+Access Time	Faster (constant time O(1) for random access)	Slower (linear time O(n) for random access)
+Insertions/Deletions	Slower for inserting/removing elements in the middle (O(n))	Faster for insertions and deletions at the beginning or middle (O(1) for add/remove at ends)
+Memory Usage	Less memory overhead as it stores data in a contiguous block	More memory overhead due to storing additional pointers in each node
+Use Case	Ideal for frequent access and infrequent insertions/removals	Ideal for frequent insertions and deletions
+Performance	Good when you need to access elements by index	Better for manipulation-heavy operations like adding/removing from the list
+3. What is the difference between Iterator and ListIterator?
+Feature	Iterator	ListIterator
+Supported Collections	Can iterate over any Collection (List, Set, etc.)	Can iterate only over List collections.
+Direction of Traversal	Can only traverse in forward direction	Can traverse both forward and backward.
+Methods	next(), hasNext(), remove()	next(), hasNext(), previous(), hasPrevious(), add(), set()
+Add/Modify	Cannot modify the list (except by using remove())	Can add, remove, or replace elements while iterating
+Use Case	Used for iterating over most collections (Set, List)	Used when you need more control over a List (e.g., traversing backwards or modifying the list during iteration)
+4. What is the difference between Iterator and Enumeration?
+Feature	Iterator	Enumeration
+Introduced in	Java 1.2 (as part of the Collection Framework)	Java 1.0 (part of the legacy collection classes)
+Direction of Traversal	Can traverse in forward direction only	Can traverse in forward direction only
+Methods	next(), hasNext(), remove()	nextElement(), hasMoreElements()
+Modification	Can remove elements while iterating using remove()	Cannot modify collections (read-only)
+Performance	Iterator is generally preferred over Enumeration in modern code	Enumeration is considered legacy and is less commonly used today
+Note: Enumeration was used before the introduction of the Collection Framework, and Iterator is the preferred method for iterating over collections.
+
+5. What is the difference between List and Set?
+Feature	List	Set
+Duplicates	Allows duplicate elements	Does not allow duplicate elements
+Ordering	Maintains insertion order (e.g., ArrayList, LinkedList)	Does not guarantee any specific order (except LinkedHashSet and TreeSet)
+Example	ArrayList, LinkedList, Vector	HashSet, TreeSet, LinkedHashSet
+Access	Access elements by index (supports random access)	Does not support accessing elements by index
+Use Case	When the order of elements matters, or duplicates are allowed	When unique elements are required and order doesn’t matter (unless explicitly specified)
+6. What is the difference between HashSet and TreeSet?
+Feature	HashSet	TreeSet
+Ordering	No ordering (elements are unordered)	Sorted order (elements are sorted based on natural order or a custom comparator)
+Performance	Faster for basic operations (add, remove, contains) due to hash table implementation	Slower for basic operations due to red-black tree implementation
+Null Values	Allows one null element	Does not allow null elements (throws NullPointerException if null is added)
+Use Case	When order doesn’t matter and uniqueness is required	When elements need to be ordered, either naturally or by a comparator
+7. What is the difference between Array and ArrayList?
+Feature	Array	ArrayList
+Size	Fixed size (once initialized, cannot be changed)	Dynamic size (grows or shrinks automatically)
+Type	Can hold elements of any type (primitives and objects)	Can only hold objects (can’t hold primitive types directly, need wrapper classes like Integer, Double, etc.)
+Performance	Faster in terms of access because it uses contiguous memory locations	Slower due to dynamic resizing and more complex memory management
+Methods	No built-in methods for manipulation (like adding/removing elements)	Provides built-in methods for manipulation (e.g., add(), remove(), size(), etc.)
+Use Case	Ideal for a fixed-size collection of elements	Ideal for situations where the size of the collection can vary during runtime
